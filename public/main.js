@@ -165,9 +165,6 @@ const RenderLogin = () => {
     fetch("https://server-less-murex.vercel.app/api/auth/login", requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.token);
-        console.log(data["token"]);
         localStorage.setItem("token", data["token"]);
         ruta = "orders";
         RenderOrders();

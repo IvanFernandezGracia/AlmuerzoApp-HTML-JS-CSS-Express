@@ -3,13 +3,13 @@ const { isAuthenticated, hasRoles } = require("../auth");
 const router = express.Router();
 const Orders = require("../models/Orders");
 
-router.get("/", (req, res) => {
+router.get("/",isAuthenticated, (req, res) => {
   Orders.find()
     .exec()
     .then((x) => res.status(200).send(x));
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id",isAuthenticated, (req, res) => {
   Orders.findById(req.params.id)
     .exec()
     .then((x) => res.status(200).send(x));
