@@ -14,50 +14,11 @@ const renderApp = () => {
 };
 
 ////////////////
-// Template Login
-////////////////
-const RenderLogin = () => {
-  const loginTemplate = document.getElementById("login-template");
-  document.getElementById("app").innerHTML = loginTemplate.innerHTML;
-  const loginForm = document.getElementById("login-form");
-  loginForm.onsubmit = (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    ////////////////////////
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-      email: email,
-      password: password,
-    });
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    fetch("https://server-less-murex.vercel.app/api/auth/login", requestOptions)
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        localStorage.setItem("token", data.token);
-        ruta = "orders";
-        RenderOrders();
-      })
-      .catch((error) => console.log("error", error));
-  };
-};
-
-////////////////
 // Template Orders
 ////////////////
 const RenderOrders = () => {
   const ordersView = document.getElementById("orders-view");
-  document.getElementsById("app").innerHTML = ordersView.innerHTML;
+  document.getElementById("app").innerHTML = ordersView.innerHTML;
   inicializaFormulario();
   inicializaDatos();
 };
@@ -172,4 +133,43 @@ const renderOrder = (order, meals) => {
     `<li data-id=${order._id}> ${meal?.name} - ${order.user_id}</li>`
   );
   return element;
+};
+
+////////////////
+// Template Login
+////////////////
+const RenderLogin = () => {
+  const loginTemplate = document.getElementById("login-template");
+  document.getElementById("app").innerHTML = loginTemplate.innerHTML;
+  const loginForm = document.getElementById("login-form");
+  loginForm.onsubmit = (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    ////////////////////////
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email: email,
+      password: password,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://server-less-murex.vercel.app/api/auth/login", requestOptions)
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("token", data.token);
+        ruta = "orders";
+        RenderOrders();
+      })
+      .catch((error) => console.log("error", error));
+  };
 };
