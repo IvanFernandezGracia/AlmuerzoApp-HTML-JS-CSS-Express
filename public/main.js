@@ -24,30 +24,31 @@ const RenderLogin = () => {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    fetch("https://server-less-murex.vercel.app/api/auth/login", {
+    ////////////////////////
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email: email,
+      password: password,
+    });
+
+    var requestOptions = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((x) => {
-        console.log({
-          email,
-          password,
-        })
-        console.log(x)
-        x.json();
-      })
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://server-less-murex.vercel.app/api/auth/login", requestOptions)
+      .then((response) => response.text())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         localStorage.setItem("token", data.token);
         ruta = "orders";
         RenderOrders();
-      });
+      })
+      .catch((error) => console.log("error", error));
   };
 };
 
@@ -104,7 +105,6 @@ const inicializaFormulario = () => {
 
 const inicializaDatos = () => {
   // Cargar meals iniciales y ordenes iniciales
-  
 
   fetch("https://server-less-murex.vercel.app/api/meals", {
     method: "GET", //POST DELETE
