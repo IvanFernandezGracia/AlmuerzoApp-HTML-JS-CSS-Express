@@ -2,7 +2,8 @@ const express = require("express");
 const Meals = require("../models/Meals");
 
 const router = express.Router();
-
+const { isAuthenticated, hasRoles } = require("../auth");
+ 
 router.get("/",isAuthenticated, (req, res) => {
   Meals.find()
     .exec()
