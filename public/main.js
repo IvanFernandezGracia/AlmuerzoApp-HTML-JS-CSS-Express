@@ -154,7 +154,7 @@ const RenderLogin = () => {
 
     var raw = JSON.stringify({
       email: email,
-      password: password,
+      password: password
     });
 
     var requestOptions = {
