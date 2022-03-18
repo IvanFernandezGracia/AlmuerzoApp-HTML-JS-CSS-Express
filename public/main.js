@@ -47,6 +47,7 @@ const inicializaFormulario = () => {
       credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
+        autorization: localStorage.getItem("token"),
       },
       redirect: "follow",
       body: JSON.stringify(order),
@@ -154,7 +155,7 @@ const RenderLogin = () => {
 
     var raw = JSON.stringify({
       email: email,
-      password: password
+      password: password,
     });
 
     var requestOptions = {
@@ -167,9 +168,9 @@ const RenderLogin = () => {
     fetch("https://server-less-murex.vercel.app/api/auth/login", requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.token);
-        console.log(data["token"]);
+        //console.log(data);
+        //console.log(data.token);
+        //console.log(data["token"]);
         localStorage.setItem("token", data["token"]);
         ruta = "orders";
         RenderOrders();

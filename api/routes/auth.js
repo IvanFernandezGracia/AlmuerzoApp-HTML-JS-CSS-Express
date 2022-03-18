@@ -34,12 +34,12 @@ router.post("/register", (req, res) => {
   });
 });
 router.post("/login", (req, res) => {
-  console.log("login");
+  //console.log("login");
   const { email, password } = req.body;
   Users.findOne({ email })
     .exec()
     .then((user) => {
-      console.log(user);
+      //console.log(user);
       if (!user) {
         return res.send("usuario y/o contraseña incorrectaaaa");
       }
@@ -47,7 +47,7 @@ router.post("/login", (req, res) => {
         const encryptedPassword = key.toString("base64");
         if (user.password === encryptedPassword) {
           const token = signToken(user._id);
-          console.log(token);
+          //console.log(token);
           return res.send({ token });
 
           // return res.send('Contraseñas coinciden! te dare un token de aceso');
@@ -56,7 +56,7 @@ router.post("/login", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      //console.log(err);
 
       res.send("errr: " + err);
     });

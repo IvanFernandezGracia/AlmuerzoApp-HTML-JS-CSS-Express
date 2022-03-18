@@ -22,7 +22,7 @@ router.post("/", isAuthenticated, hasRoles(["admin"]), (req, res) => {
 });
 
 router.put("/:id", isAuthenticated, hasRoles(["admin", "user"]), (req, res) => {
-  console.log(req.params.id, req.body);
+  //console.log(req.params.id, req.body);
   Orders.findByIdAndUpdate(req.params.id, req.body)
     .then((x) => res.status(204).send(x))
     .catch((err) => res.status(404).send("error: " + err));
