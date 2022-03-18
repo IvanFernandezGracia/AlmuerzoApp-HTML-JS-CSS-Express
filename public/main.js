@@ -47,7 +47,7 @@ const inicializaFormulario = () => {
       credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
-        autorization: localStorage.getItem("token")
+        "autorization": localStorage.getItem("token")
       },
       redirect: "follow",
       body: JSON.stringify(order),
@@ -75,7 +75,7 @@ const inicializaDatos = () => {
     credentials: "same-origin",
     headers: {
       "Content-Type": "application/json",
-      autorization: localStorage.getItem("token")
+      "autorization": localStorage.getItem("token")
     },
     redirect: "follow",
   })
@@ -95,7 +95,7 @@ const inicializaDatos = () => {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
-          autorization: localStorage.getItem("token")
+          "autorization": localStorage.getItem("token")
         },
         redirect: "follow",
       })
