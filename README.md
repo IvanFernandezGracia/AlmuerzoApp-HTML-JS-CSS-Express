@@ -6,7 +6,7 @@ Teacher-led course: Nicolas Schurmann
 
 ## Page Login
 
-## Link Curso
+## Link Course
 https://www.udemy.com/course/aprende-javascript-es9-html-css3-y-nodejs-desde-cero/ 
 
 <!-- Tech -->
