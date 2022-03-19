@@ -1,5 +1,5 @@
 # AlmuerzoApp-HTML-JS-CSS-Express-FRONTEND-BACKEND
-Basic application of 3 levels (front - back - database). The objective is to create an app to take food orders and register them by user. An auth login is created for each user who wants an order. The most used technologies are: Vercel, NodeJS, Express, JWT, JSE6, HTML, CSS.
+Basic application of 3 levels (front - back - database). The objective is to create an app to take food orders and register them by user. An auth login is created for each user who wants an order. The most used technologies are: Vercel, NodeJS, Express, Mongo DB, JWT, JSE6, HTML, CSS.
 Teacher-led course: Nicolas Schurmann
 
 ## Page Login
@@ -9,6 +9,7 @@ Teacher-led course: Nicolas Schurmann
 ![111](https://user-images.githubusercontent.com/48660555/159105150-d4d60a00-3d21-4279-a876-c13afbe45762.png)
 
 ## Database Structure
+![Captura de pantalla 2022-03-19 004038](https://user-images.githubusercontent.com/48660555/159105300-122440c5-bbb5-4510-9ab3-3a9af804d280.png)
 
 ## Video
 https://user-images.githubusercontent.com/48660555/159105144-f4fc70ba-f4af-46e2-aac1-4615c68433eb.mp4
